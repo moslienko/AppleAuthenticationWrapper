@@ -52,7 +52,7 @@ pod 'AppleAuthenticationWrapper'
 To integrate AppleAuthenticationWrapper into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "PavelMoslienko/AppleAuthenticationWrapper"
+github "moslienko/AppleAuthenticationWrapper"
 ```
 
 Run `carthage update --use-xcframeworks` to build the framework and drag the built `AppleAuthenticationWrapper.xcframework` bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
@@ -63,7 +63,7 @@ To integrate using Apple's [Swift Package Manager](https://swift.org/package-man
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/PavelMoslienko/AppleAuthenticationWrapper.git", from: "1.0.0")
+    .package(url: "https://github.com/moslienko/AppleAuthenticationWrapper.git", from: "1.0.0")
 ]
 ```
 
