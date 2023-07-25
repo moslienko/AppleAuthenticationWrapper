@@ -8,12 +8,13 @@
 
 import UIKit
 import AppleAuthenticationWrapper
+import AuthenticationServices
 
 // MARK: - ViewController
 
 /// The ViewController
 class ViewController: UIViewController {
-
+    
     // MARK: Properties
     
     /// The Label
@@ -33,11 +34,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
+        let appleSignInButton = ASAuthorizationAppleIDButton(type: .default, style: .black)
+        appleSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        appleSignInButton.addTarget(self, action: #selector(appleSignInBtnTapped), for: .touchUpInside)
+        
+        view.addSubview(appleSignInButton)
+        NSLayoutConstraint.activate([
+            appleSignInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            appleSignInButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     /// LoadView
     override func loadView() {
-        self.view = self.label
+        self.view = UIView()
     }
-
+    
+    @objc
+    private func appleSignInBtnTapped() {
+        let authWrapper = AppleAuthenticationWrapper()
+        authWrapper.signInViaApple(
+            from: self,
+            requestedScopes: [.email, .fullName],
+            successAuth: { credential in
+                print("Success auth, token \(credential.token), nonce - \(authWrapper.currentNonce)")
+            },
+            failedAuth: { error in
+                print("Failed auth: \(String(describing: error?.localizedDescription))")
+            }
+        )
+    }
 }
