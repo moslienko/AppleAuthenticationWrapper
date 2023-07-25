@@ -46,6 +46,20 @@ public class AppleAuthenticationWrapper: UIViewController {
         
         authorizationController.performRequests()
     }
+    
+    public func checkAuthStatus(userID: String, authorized: (() -> Void)?, notAuthorized: (() -> Void)?) {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        appleIDProvider.getCredentialState(forUserID: userID) { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                authorized?()
+            case .revoked, .notFound:
+                notAuthorized?()
+            default:
+                break
+            }
+        }
+    }
 }
 
 // MARK: - ASAuthorizationControllerDelegate
