@@ -55,9 +55,7 @@ extension AppleAuthenticationWrapper: ASAuthorizationControllerDelegate, ASAutho
         print("didCompleteWithAuthorization")
         self.dismiss(animated: false)
         guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
-              let nonce = currentNonce,
-              let appleIDToken = appleIDCredential.identityToken,
-              let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+              appleIDCredential.token != nil else {
             print("Unable to fetch identity token")
             self.failedAuth?(nil)
             return

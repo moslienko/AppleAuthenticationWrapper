@@ -58,10 +58,10 @@ class ViewController: UIViewController {
             from: self,
             requestedScopes: [.email, .fullName],
             successAuth: { credential in
-                print("Success auth \(credential.user)")
+                print("Success auth, token \(credential.token), nonce - \(authWrapper.currentNonce)")
             },
             failedAuth: { error in
-                print("Failed auth \(String(describing: error?.localizedDescription))")
+                print("Failed auth: \(String(describing: error?.localizedDescription))")
             }
         )
     }

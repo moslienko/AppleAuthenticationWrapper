@@ -23,6 +23,10 @@
 		3D9C432E2274629C000A6585 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C432C2274629C000A6585 /* LaunchScreen.storyboard */; };
 		3D9C433422746323000A6585 /* AppleAuthenticationWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C429022745894000A6585 /* AppleAuthenticationWrapper.framework */; };
 		3D9C433522746323000A6585 /* AppleAuthenticationWrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9C429022745894000A6585 /* AppleAuthenticationWrapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95CD7FBA2A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CD7FB92A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift */; };
+		95CD7FBB2A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CD7FB92A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift */; };
+		95CD7FBC2A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CD7FB92A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift */; };
+		95CD7FBD2A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CD7FB92A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +102,7 @@
 		3D9C432D2274629C000A6585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D9C432F2274629C000A6585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95CD7FB72A6FED0400088E5D /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example.entitlements; sourceTree = "<group>"; };
+		95CD7FB92A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+ASAuthorizationAppleIDCredential.swift"; path = "../../../../../../Desktop/Extension+ASAuthorizationAppleIDCredential.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,9 +253,18 @@
 		95CD7FB12A6FDD3600088E5D /* AppleAuthenticationWrapper */ = {
 			isa = PBXGroup;
 			children = (
+				95CD7FB82A6FFCBF00088E5D /* Extensions */,
 				3D9C42A122745900000A6585 /* AppleAuthenticationWrapper.swift */,
 			);
 			path = AppleAuthenticationWrapper;
+			sourceTree = "<group>";
+		};
+		95CD7FB82A6FFCBF00088E5D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				95CD7FB92A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -639,6 +653,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CD7FBA2A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift in Sources */,
 				3D9C42A222745900000A6585 /* AppleAuthenticationWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,6 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CD7FBB2A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift in Sources */,
 				3D9C42B1227459C1000A6585 /* AppleAuthenticationWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,6 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CD7FBC2A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift in Sources */,
 				3D9C42BF227459F6000A6585 /* AppleAuthenticationWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,6 +680,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CD7FBD2A6FFCD600088E5D /* Extension+ASAuthorizationAppleIDCredential.swift in Sources */,
 				3D9C42CD22745A28000A6585 /* AppleAuthenticationWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
