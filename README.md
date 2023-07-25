@@ -6,15 +6,6 @@
    <a href="https://developer.apple.com/swift/">
       <img src="https://img.shields.io/badge/Swift-5.2-orange.svg?style=flat" alt="Swift 5.2">
    </a>
-   <a href="http://cocoapods.org/pods/AppleAuthenticationWrapper">
-      <img src="https://img.shields.io/cocoapods/v/AppleAuthenticationWrapper.svg?style=flat" alt="Version">
-   </a>
-   <a href="http://cocoapods.org/pods/AppleAuthenticationWrapper">
-      <img src="https://img.shields.io/cocoapods/p/AppleAuthenticationWrapper.svg?style=flat" alt="Platform">
-   </a>
-   <a href="https://github.com/Carthage/Carthage">
-      <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible">
-   </a>
    <a href="https://github.com/apple/swift-package-manager">
       <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="SPM">
    </a>
@@ -23,39 +14,14 @@
 # AppleAuthenticationWrapper
 
 <p align="center">
-ℹ️ Short description of AppleAuthenticationWrapper
+ℹ️ Wrapper for quick authorization with Apple Sign In
 </p>
-
-## Features
-
-- [x] ℹ️ Add AppleAuthenticationWrapper features
 
 ## Example
 
 The example application is the best way to see `AppleAuthenticationWrapper` in action. Simply open the `AppleAuthenticationWrapper.xcodeproj` and run the `Example` scheme.
 
 ## Installation
-
-### CocoaPods
-
-AppleAuthenticationWrapper is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```bash
-pod 'AppleAuthenticationWrapper'
-```
-
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-To integrate AppleAuthenticationWrapper into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "moslienko/AppleAuthenticationWrapper"
-```
-
-Run `carthage update --use-xcframeworks` to build the framework and drag the built `AppleAuthenticationWrapper.xcframework` bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
 
 ### Swift Package Manager
 
@@ -75,11 +41,33 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 ## Usage
 
-ℹ️ Describe the usage of your Kit
+Init wrapper class:
 
-## Contributing
-Contributions are very welcome 🙌
+```swift
+let authWrapper = AppleAuthenticationWrapper()
+```
 
+Checking if the user is logged:
+
+```swift
+func checkAuthStatus(userID: String, authorized: (() -> Void)?, notAuthorized: (() -> Void)?)
+```
+
+After successful authorization, you can immediately get a token and nonce:
+
+```swift
+authWrapper.signInViaApple(
+    from: self,
+    requestedScopes: [.email, .fullName],
+    successAuth: { credential in
+        print("Success auth, token \(credential.token), nonce - \(authWrapper.currentNonce)")
+    },
+    failedAuth: { error in
+        print("Failed auth: \(String(describing: error?.localizedDescription))")
+    }
+)
+ ```
+ 
 ## License
 
 ```

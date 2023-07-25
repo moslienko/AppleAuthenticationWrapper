@@ -23,6 +23,12 @@ public class AppleAuthenticationWrapper: UIViewController {
     
     private weak var parentVC: UIViewController?
     
+    /// Auth via AppleSignIn
+    /// - Parameters:
+    ///   - vc: parent view controller
+    ///   - requestedScopes: a list of data that must be requested from the user
+    ///   - successAuth: callback if success auth
+    ///   - failedAuth: callback if failed auth
     public func signInViaApple(from vc: UIViewController, requestedScopes: [ASAuthorization.Scope], successAuth: @escaping SuccessAppleAuth, failedAuth: FailedAppleAuth?) {
         self.parentVC = vc
         self.successAuth = successAuth
@@ -47,6 +53,11 @@ public class AppleAuthenticationWrapper: UIViewController {
         authorizationController.performRequests()
     }
     
+    /// Checking if the user is logged in AppleSignIn
+    /// - Parameters:
+    ///   - userID: user identifier
+    ///   - authorized: callback if user is logged and token is valid
+    ///   - notAuthorized: callback if user is not logged
     public func checkAuthStatus(userID: String, authorized: (() -> Void)?, notAuthorized: (() -> Void)?) {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         appleIDProvider.getCredentialState(forUserID: userID) { (credentialState, error) in
@@ -66,11 +77,9 @@ public class AppleAuthenticationWrapper: UIViewController {
 extension AppleAuthenticationWrapper: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        print("didCompleteWithAuthorization")
         self.dismiss(animated: false)
         guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
               appleIDCredential.token != nil else {
-            print("Unable to fetch identity token")
             self.failedAuth?(nil)
             return
         }
