@@ -1,5 +1,5 @@
 <p align="center">
-   <img width="200" src="https://raw.githubusercontent.com/SvenTiigi/SwiftKit/gh-pages/readMeAssets/SwiftKitLogo.png" alt="AppleAuthenticationWrapper Logo">
+   <img width="200" src="https://moslienko.github.io/Assets/AppleAuthenticationWrapper/sdk.png" alt="AppleAuthenticationWrapper Logo">
 </p>
 
 <p align="center">
